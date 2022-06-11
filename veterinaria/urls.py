@@ -18,7 +18,12 @@ router.register(r'Pesos', views.Pesos)
 urlpatterns = [
     # path('admin/', admin.site.urls),
     path('', include(router.urls)),
-    path('Persona', views.Persona),
+    path('views.Persona', include('rest_framework.urls', namespace='Persona')),
+    path('views.ClientesFamilia', include('rest_framework.urls', namespace='ClientesFamilia')),
+    path('views.RelacionPersonasClientes', include('rest_framework.urls', namespace='RelacionPersonasClientes')),
+    path('views.PacientesMascotas', include('rest_framework.urls', namespace='PacientesMascotas')),
+    path('views.Vacunas', include('rest_framework.urls', namespace='Vacunas')),
+    path('views.Pesos', include('rest_framework.urls', namespace='Pesos')),
 
 ]
 
