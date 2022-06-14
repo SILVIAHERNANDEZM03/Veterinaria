@@ -2,7 +2,7 @@ from rest_framework import serializers
 from vet import models
 
 
-class Persona(serializers.ModelSerializer):
+class PersonaSerializer(serializers.ModelSerializer):
     class Meta:
         fields = (
             'nombrepersona',
@@ -14,7 +14,7 @@ class Persona(serializers.ModelSerializer):
         model=models.Persona
 
 
-class ClientesFamilia(serializers.ModelSerializer):
+class ClientesFamiliaSerializer(serializers.ModelSerializer):
     class Meta:
         fields = (
             'PrimerApellido',
@@ -24,7 +24,7 @@ class ClientesFamilia(serializers.ModelSerializer):
         model=models.ClientesFamilia
 
 
-class RelacionPersonasClientes(serializers.ModelSerializer):
+class RelacionPersonasClientesSerializer(serializers.ModelSerializer):
     class Meta:
         fields = (
             'IDClientesFamilia',
@@ -33,7 +33,7 @@ class RelacionPersonasClientes(serializers.ModelSerializer):
         model=models.RelacionPersonasClientes
 
 
-class PacientesMascotas(serializers.ModelSerializer):
+class PacientesMascotasSerializer(serializers.ModelSerializer):
     class Meta:
         fields = (
             'IDClientesFamilia',
@@ -45,10 +45,10 @@ class PacientesMascotas(serializers.ModelSerializer):
             'Vacunaciones'
 
         )
-        model=models.RelacionPersonasClientes
+        model=models.PacientesMascotas
 
 
-class Vacunas(serializers.ModelSerializer):
+class VacunasSerializer(serializers.ModelSerializer):
     class Meta:
         fields = (
             'IDPacientesMascotas',
@@ -60,7 +60,7 @@ class Vacunas(serializers.ModelSerializer):
         model = models.Vacunas
 
 
-class Pesos(serializers.ModelSerializer):
+class PesosSerializer(serializers.ModelSerializer):
     class Meta:
         fields = (
             'IDPacientesMascotas',

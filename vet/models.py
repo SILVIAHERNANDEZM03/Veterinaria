@@ -11,7 +11,7 @@ class Persona(models.Model):
     email = models.EmailField(verbose_name='Correo Electrónico', max_length=100)
 
     def _str_(self):
-        return  "nombrepersona: {0} -> apellidopersona: {1} -> telefono {2}".format(self.nombrepersona, self.apellidopersona, self.telefono)
+        return "nombrepersona: {0} -> apellidopersona: {1} -> telefono {2}".format(self.nombrepersona, self.apellidopersona, self.telefono)
 
 
 class ClientesFamilia(models.Model):
@@ -37,7 +37,7 @@ class PacientesMascotas(models.Model):
     Especie = models.CharField(verbose_name='Especie', max_length=50)
     Raza = models.CharField(verbose_name='Raza', max_length=50)
     ColorPelo = models.CharField(verbose_name='Color de pelo', max_length=20)
-    FechaNacimiento = models.DateField('dd,mm,aaaa')
+    FechaNacimiento = models.DateField('Fecha de Nacimiento')
     Vacunaciones = models.CharField(verbose_name='Vacunas', max_length=50)
 
     def _str_(self):
@@ -46,9 +46,9 @@ class PacientesMascotas(models.Model):
 
 class Vacunas(models.Model):
     IDPacientesMascotas = models.ForeignKey(PacientesMascotas, verbose_name='PacientesMascotas', on_delete=models.CASCADE)
-    Fecha = models.DateField('dd,mm,aaaa')
+    Fecha = models.DateField('Fecha')
     Enfermedad = models.CharField(verbose_name='Enfermedad que tiene', max_length=150)
-    FechaProxima = models.DateField('dd,mm,aaaa')
+    FechaProxima = models.DateField('Fecha Próxima')
 
     def _str_(self):
         return "IDPacientesMascotas: {0} -> Fecha: {1} -> Enfermedad: {2}".format(self.IDPacientesMascotas, self.Fecha, self.Enfermedad)
